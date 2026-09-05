@@ -191,21 +191,21 @@ export const RegisterPage = ({ setActivePage }) => {
                       )}
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 gap-3">
                       <input
                         type="text"
                         required
                         placeholder="Full Name"
                         value={member.name}
                         onChange={(e) => handleMemberChange(idx, 'name', e.target.value)}
-                        className="w-full px-3.5 py-2 bg-bg-deep/70 border border-cream/20 rounded-xl text-xs font-body text-cream placeholder-cream/40 focus:outline-none focus:border-gold"
+                        className="w-full px-3.5 py-2.5 bg-bg-deep/70 border border-cream/20 rounded-xl text-sm font-body text-cream placeholder-cream/40 focus:outline-none focus:border-gold"
                       />
                       <input
                         type="text"
                         placeholder="Role (e.g. Lead Hacker)"
                         value={member.role}
                         onChange={(e) => handleMemberChange(idx, 'role', e.target.value)}
-                        className="w-full px-3.5 py-2 bg-bg-deep/70 border border-cream/20 rounded-xl text-xs font-body text-cream placeholder-cream/40 focus:outline-none focus:border-gold"
+                        className="w-full px-3.5 py-2.5 bg-bg-deep/70 border border-cream/20 rounded-xl text-sm font-body text-cream placeholder-cream/40 focus:outline-none focus:border-gold"
                       />
                     </div>
                   </div>

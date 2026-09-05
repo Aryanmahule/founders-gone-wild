@@ -37,9 +37,9 @@ export const ChaosModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/85 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-ink/85 backdrop-blur-md animate-fadeIn">
       {/* Container */}
-      <div className="relative bg-bg-deep border-4 border-gold rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6 text-center overflow-hidden">
+      <div className="relative bg-bg-deep border-4 border-gold rounded-3xl w-full max-w-lg p-5 sm:p-8 shadow-2xl space-y-5 text-center overflow-hidden max-h-[90dvh] overflow-y-auto">
         
         {/* Close Button */}
         <button
@@ -57,10 +57,10 @@ export const ChaosModal = ({ isOpen, onClose }) => {
 
         {/* Comic Skull & Title */}
         <div className="space-y-2">
-          <div className="w-20 h-20 mx-auto rounded-3xl bg-ink/60 border-2 border-purple flex items-center justify-center text-4xl shadow-inner animate-float">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-ink/60 border-2 border-purple flex items-center justify-center text-3xl sm:text-4xl shadow-inner animate-float">
             {activeChaos.icon}
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl text-gold uppercase tracking-tight">
+          <h2 className="font-display text-2xl sm:text-4xl text-gold uppercase tracking-tight">
             {activeChaos.title}
           </h2>
           <div className="text-xs font-mono-code uppercase font-bold text-purple bg-ink/40 px-3 py-1 rounded-full border border-purple/30 inline-block">
@@ -90,7 +90,7 @@ export const ChaosModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <PillButton
             variant="outline"
             size="md"
