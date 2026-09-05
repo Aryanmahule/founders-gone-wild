@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Large media assets — frames & video (too large for GitHub, serve locally)
+frames/
+public/frames/
+new frames/
+*.mp4
+fgw-deck-explode.mp4
+public/fgw-deck-explode.mp4

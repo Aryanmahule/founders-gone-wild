@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #598F83;
+  --bg-deep: #3F6B62;
+  --cream: #EDE6C4;
+  --sage: #8FAF9F;
+  --gold: #F2C94C;
+  --purple: #6C3FA6;
+  --blue: #2F6FA8;
+  --ink: #132420;
+  --white: #FBF9F1;
+}
+
+/* Global resets & typography classes */
+.font-display {
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 0.5px;
+}
+
+.font-mono-code {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Signature Sunburst Overlay echoing card-back */
+.sunburst-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(from 0deg, rgba(237, 230, 196, 0.04) 0deg 6deg, transparent 6deg 12deg);
+  mask-image: radial-gradient(circle at 40% 35%, black, transparent 75%);
+  pointer-events: none;
+}
+
+/* Comic Text Shadows */
+.comic-shadow-gold-blue {
+  color: var(--gold);
+  text-shadow: 3px 3px 0 var(--blue), 5px 5px 0 rgba(19, 36, 32, 0.35);
+}
+
+.comic-shadow-purple-cream {
+  color: var(--purple);
+  text-shadow: 3px 3px 0 var(--cream), 5px 5px 0 rgba(19, 36, 32, 0.35);
+}
+
+.comic-shadow-white-deep {
+  color: var(--white);
+  text-shadow: 3px 3px 0 var(--bg-deep);
+}
+
+.comic-shadow-gold-ink {
+  color: var(--gold);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3F6B62;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EDE6C4;
+  border-radius: 5px;
+  border: 2px solid #3F6B62;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F2C94C;
+}
+
+/* 3D Card Flip Perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Interactive Card Shimmer */
+@keyframes card-shimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.animate-shimmer {
+  animation: card-shimmer 2.5s infinite;
+}
+
+/* Fade-in utility (used by modals, drawers, intro transition) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease forwards;
+}
