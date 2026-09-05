@@ -21,10 +21,11 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Large media assets — frames & video (too large for GitHub, serve locally)
-frames/
-public/frames/
+# Duplicate source folder (not needed, public/frames is the real one)
 new frames/
+frames/
+
+# Video file (large binary)
 *.mp4
 fgw-deck-explode.mp4
 public/fgw-deck-explode.mp4
