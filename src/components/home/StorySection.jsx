@@ -52,49 +52,49 @@ export const StorySection = ({ setActivePage }) => {
   }, []);
 
   return (
-    <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t-2 border-cream/20">
+    <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t-2 border-cream/20">
 
       {/* Section header */}
-      <div className="text-center mb-10 sm:mb-16">
+      <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 font-mono-code text-xs font-bold uppercase tracking-wider bg-cream/15 border border-cream/40 px-3.5 py-1.5 rounded-full text-cream mb-3">
           <Layers className="w-3.5 h-3.5 text-gold" />
           The Anatomy of an Exploded Deck
         </div>
-        <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight">
+        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight">
           <span className="comic-shadow-gold-blue">How The Event</span>{' '}
           <span className="comic-shadow-purple-cream">Unfolds</span>
         </h2>
       </div>
 
-      {/* Scrolling steps */}
-      <div className="space-y-4 sm:space-y-6">
+      {/* Scrolling steps — single centred column now that the canvas is gone */}
+      <div className="space-y-6">
         {steps.map((step, idx) => {
           const isActive = activeStep === idx;
           return (
             <div
               key={idx}
               ref={(el) => (stepsRef.current[idx] = el)}
-              className={`min-h-[40vh] sm:min-h-[55vh] flex flex-col justify-center transition-all duration-500 rounded-2xl sm:rounded-3xl p-5 sm:p-10 ${
+              className={`min-h-[55vh] flex flex-col justify-center transition-all duration-500 rounded-3xl p-6 sm:p-10 ${
                 isActive
                   ? 'opacity-100 translate-y-0 bg-ink/30 border-2 border-gold/40 shadow-2xl backdrop-blur-md'
                   : 'opacity-30 translate-y-4 bg-transparent border border-transparent'
               }`}
             >
-              <div className="flex items-center gap-2.5 font-mono-code text-xs font-bold uppercase tracking-widest text-gold mb-2 sm:mb-3">
-                <span className="text-base sm:text-lg">{step.icon}</span>
-                <span className="leading-tight">{step.tag}</span>
+              <div className="flex items-center gap-2.5 font-mono-code text-xs font-bold uppercase tracking-widest text-gold mb-3">
+                <span className="text-lg">{step.icon}</span>
+                <span>{step.tag}</span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-comicWhite mb-3 sm:mb-4 leading-tight">
+              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-comicWhite mb-4 leading-tight">
                 {step.title}
               </h3>
 
-              <p className="text-sm sm:text-lg text-comicWhite/85 leading-relaxed mb-4 sm:mb-6 font-medium max-w-2xl">
+              <p className="text-base sm:text-lg text-comicWhite/85 leading-relaxed mb-6 font-medium max-w-2xl">
                 {step.desc}
               </p>
 
               {isActive && (
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-3">
                   <span className="text-xs font-mono-code bg-gold text-ink font-bold px-3 py-1 rounded-full uppercase">
                     Layer {idx + 1} of 4 Active
                   </span>

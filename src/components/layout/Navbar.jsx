@@ -62,10 +62,13 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
               <span className="absolute -top-1 -right-1 text-xs">🃏</span>
             </div>
             <div>
-              <div className="font-display text-xl sm:text-2xl tracking-wider text-gold drop-shadow-sm">
+              <div className="font-display text-2xl tracking-wider text-gold drop-shadow-sm flex items-center gap-1.5">
                 FGW
+                <span className="text-[11px] font-mono-code font-bold text-cream/75 bg-ink/40 px-1.5 py-0.5 rounded border border-cream/20">
+                  V2.0
+                </span>
               </div>
-              <div className="text-[9px] font-mono-code uppercase tracking-widest text-comicWhite/70 hidden sm:block">
+              <div className="text-[9px] font-mono-code uppercase tracking-widest text-comicWhite/70">
                 Founders Gone Wild
               </div>
             </div>
@@ -117,31 +120,22 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex xl:hidden items-center gap-1.5">
+          <div className="flex xl:hidden items-center gap-2">
             <button
               onClick={() => {
                 soundFX.playChaos();
                 onOpenChaos();
               }}
-              className="p-2 rounded-lg bg-purple text-comicWhite border border-cream/30"
+              className="p-2 rounded-lg bg-purple text-comicWhite text-xs border border-cream/30"
               title="Trigger Chaos Card"
             >
               <Zap className="w-4 h-4 text-gold" />
             </button>
-            {/* Register shortcut on mobile */}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdZTOSL6CbQQEQ3fU5HcKwTWKtaxQ-RgPSrR3wShZjAA6c18w/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center px-3 py-2 rounded-full bg-gold text-ink text-xs font-bold uppercase tracking-wider"
-            >
-              Register →
-            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-ink/40 text-cream hover:text-gold border border-cream/20"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
@@ -150,7 +144,7 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-bg-deep/95 border-b-2 border-cream/30 px-4 pt-3 pb-5 space-y-2 backdrop-blur-xl animate-fadeIn">
+        <div className="xl:hidden bg-bg-deep/95 border-b-2 border-cream/30 px-4 pt-3 pb-6 space-y-2 backdrop-blur-xl animate-fadeIn">
           <div className="grid grid-cols-2 gap-2 pb-3">
             {navItems.map((item) => {
               const isActive = activePage === item.id;
@@ -158,7 +152,7 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`flex items-center gap-2 p-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-left transition-colors ${
+                  className={`flex items-center gap-2 p-3 rounded-xl text-xs font-bold uppercase tracking-wider text-left transition-colors ${
                     isActive
                       ? 'bg-gold text-ink font-extrabold shadow-comic-gold'
                       : 'bg-ink/30 text-comicWhite/90 border border-cream/15'
@@ -170,14 +164,17 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
               );
             })}
           </div>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdZTOSL6CbQQEQ3fU5HcKwTWKtaxQ-RgPSrR3wShZjAA6c18w/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-full py-3 rounded-full bg-gold text-ink text-sm font-bold uppercase tracking-wider"
-          >
-            Register Your Squad Now →
-          </a>
+
+          <div className="pt-2 flex flex-col gap-2">
+            <PillButton
+              variant="gold"
+              size="md"
+              className="w-full"
+              onClick={() => handleNavClick('register')}
+            >
+              Register Your Squad Now
+            </PillButton>
+          </div>
         </div>
       )}
     </nav>
