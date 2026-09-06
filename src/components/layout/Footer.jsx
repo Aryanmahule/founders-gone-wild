@@ -70,6 +70,11 @@ export const Footer = ({ setActivePage }) => {
                 </button>
               </li>
               <li>
+                <button onClick={() => { setActivePage('team'); window.scrollTo(0, 0); }} className="hover:text-gold transition-colors">
+                  Our Team
+                </button>
+              </li>
+              <li>
                 <button onClick={() => { setActivePage('dashboard'); window.scrollTo(0, 0); }} className="hover:text-gold transition-colors">
                   Squad Mission Control
                 </button>

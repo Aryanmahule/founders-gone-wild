@@ -12,6 +12,7 @@ import { LeaderboardPage } from './components/pages/LeaderboardPage';
 import { JudgesPage } from './components/pages/JudgesPage';
 import { RegisterPage } from './components/pages/RegisterPage';
 import { DashboardPage } from './components/pages/DashboardPage';
+import { TeamPage } from './components/pages/TeamPage';
 import { LoadingScreen } from './components/intro/LoadingScreen';
 
 export function App() {
@@ -54,6 +55,7 @@ export function App() {
         {activePage === 'judges' && <JudgesPage setActivePage={setActivePage} />}
         {activePage === 'register' && <RegisterPage setActivePage={setActivePage} />}
         {activePage === 'dashboard' && <DashboardPage setActivePage={setActivePage} />}
+        {activePage === 'team' && <TeamPage setActivePage={setActivePage} />}
       </main>
 
       <Footer setActivePage={setActivePage} />

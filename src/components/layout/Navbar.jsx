@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PillButton } from '../ui/UIComponents';
-import { Sparkles, Zap, Menu, X, Award, Layers, Users, BookOpen, Clock, Compass } from 'lucide-react';
+import { Sparkles, Zap, Menu, X, Award, Layers, Users, BookOpen, Clock, Compass, Heart } from 'lucide-react';
 import { soundFX } from '../../utils/audio';
 
 export const Navbar = ({ activePage, setActivePage }) => {
@@ -22,6 +22,7 @@ export const Navbar = ({ activePage, setActivePage }) => {
     { id: 'cards',       label: 'Cards Library', icon: <Layers className="w-4 h-4" /> },
     { id: 'leaderboard', label: 'Leaderboard',   icon: <Award className="w-4 h-4" /> },
     { id: 'judges',      label: 'Judges',        icon: <Users className="w-4 h-4" /> },
+    { id: 'team',        label: 'Team',          icon: <Heart className="w-4 h-4 text-gold" /> },
     { id: 'dashboard',   label: 'Dashboard',     icon: <Zap className="w-4 h-4" /> },
   ];
 
