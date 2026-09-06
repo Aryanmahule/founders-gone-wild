@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { PillButton } from '../ui/UIComponents';
-import { Zap, CheckCircle2, Clock, UploadCloud, AlertCircle, Sparkles, FileText, Globe, Terminal, Shield } from 'lucide-react';
+import { CheckCircle2, Clock, UploadCloud, Sparkles, Globe, Terminal } from 'lucide-react';
 import { soundFX } from '../../utils/audio';
 import confetti from 'canvas-confetti';
 
-export const DashboardPage = ({ setActivePage, onOpenChaos }) => {
+export const DashboardPage = ({ setActivePage }) => {
   const [tasks, setTasks] = useState([
     { id: 1, text: 'Complete Round 1 Quiz and earn Founder Points', stage: 'Round 1', completed: false },
     { id: 2, text: 'Visit the Card Shop and select your Domain card', stage: 'Round 1', completed: false },
@@ -63,14 +63,6 @@ export const DashboardPage = ({ setActivePage, onOpenChaos }) => {
             <div className="text-[10px] font-mono-code uppercase text-cream/70">Completion</div>
             <div className="font-mono-code text-3xl font-bold text-gold">{progressPercent}%</div>
           </div>
-
-          <button
-            onClick={onOpenChaos}
-            className="flex items-center gap-2 bg-purple/90 hover:bg-purple text-comicWhite text-xs font-mono-code font-bold uppercase px-4 py-2.5 rounded-2xl border border-cream/30 shadow-comic-purple transition-all"
-          >
-            <Zap className="w-4 h-4 text-gold animate-bounce" />
-            <span>Chaos Event</span>
-          </button>
         </div>
       </div>
 

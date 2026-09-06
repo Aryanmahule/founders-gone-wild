@@ -20,7 +20,7 @@ export const DrawYourFate = ({ setActivePage }) => {
     if (isDrawing) return;
     setIsDrawing(true);
     setIsFlipped(false);
-    soundFX.playChaos();
+    soundFX.playFlip();
 
     setTimeout(() => {
       const randomObj = OBJECT_CARDS[Math.floor(Math.random() * OBJECT_CARDS.length)];

@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { PillButton } from '../ui/UIComponents';
-import { Sparkles, Zap, Menu, X, ShieldAlert, Award, Layers, Users, BookOpen, Clock, Compass } from 'lucide-react';
+import { Sparkles, Zap, Menu, X, Award, Layers, Users, BookOpen, Clock, Compass } from 'lucide-react';
 import { soundFX } from '../../utils/audio';
 
-export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
+export const Navbar = ({ activePage, setActivePage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Switch from transparent to blurred after user scrolls down
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
-    // Set initial state in case page is already scrolled
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: <Compass className="w-4 h-4" /> },
-    { id: 'fate', label: 'Draw Fate', icon: <Sparkles className="w-4 h-4 text-gold" /> },
-    { id: 'rules', label: 'Rules', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'rounds', label: 'Rounds', icon: <Clock className="w-4 h-4" /> },
-    { id: 'cards', label: 'Cards Library', icon: <Layers className="w-4 h-4" /> },
-    { id: 'leaderboard', label: 'Leaderboard', icon: <Award className="w-4 h-4" /> },
-    { id: 'judges', label: 'Judges', icon: <Users className="w-4 h-4" /> },
-    { id: 'dashboard', label: 'Dashboard', icon: <Zap className="w-4 h-4" /> },
+    { id: 'home',        label: 'Home',         icon: <Compass className="w-4 h-4" /> },
+    { id: 'fate',        label: 'Draw Fate',     icon: <Sparkles className="w-4 h-4 text-gold" /> },
+    { id: 'rules',       label: 'Rules',         icon: <BookOpen className="w-4 h-4" /> },
+    { id: 'rounds',      label: 'Rounds',        icon: <Clock className="w-4 h-4" /> },
+    { id: 'cards',       label: 'Cards Library', icon: <Layers className="w-4 h-4" /> },
+    { id: 'leaderboard', label: 'Leaderboard',   icon: <Award className="w-4 h-4" /> },
+    { id: 'judges',      label: 'Judges',        icon: <Users className="w-4 h-4" /> },
+    { id: 'dashboard',   label: 'Dashboard',     icon: <Zap className="w-4 h-4" /> },
   ];
 
   const REGISTER_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdZTOSL6CbQQEQ3fU5HcKwTWKtaxQ-RgPSrR3wShZjAA6c18w/viewform';
@@ -52,7 +50,7 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo Mark */}
+          {/* Logo */}
           <div
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 cursor-pointer group select-none"
@@ -74,7 +72,7 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
             </div>
           </div>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop nav links */}
           <div className="hidden xl:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = activePage === item.id;
@@ -95,21 +93,8 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
             })}
           </div>
 
-          {/* Right Action Cluster */}
+          {/* Desktop right — Register only */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Chaos Trigger Button */}
-            <button
-              onClick={() => {
-                soundFX.playChaos();
-                onOpenChaos();
-              }}
-              className="flex items-center gap-1.5 bg-purple/80 hover:bg-purple text-comicWhite text-xs font-mono-code font-bold uppercase px-3.5 py-2 rounded-full border border-purple/60 shadow-comic-purple transition-transform hover:-translate-y-0.5 active:translate-y-0.5"
-            >
-              <Zap className="w-3.5 h-3.5 text-gold animate-bounce" />
-              <span>Chaos Strike</span>
-            </button>
-
-            {/* Register Pill CTA */}
             <PillButton
               variant="gold"
               size="sm"
@@ -119,18 +104,8 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
             </PillButton>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile hamburger */}
           <div className="flex xl:hidden items-center gap-2">
-            <button
-              onClick={() => {
-                soundFX.playChaos();
-                onOpenChaos();
-              }}
-              className="p-2 rounded-lg bg-purple text-comicWhite text-xs border border-cream/30"
-              title="Trigger Chaos Card"
-            >
-              <Zap className="w-4 h-4 text-gold" />
-            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-ink/40 text-cream hover:text-gold border border-cream/20"
@@ -164,7 +139,6 @@ export const Navbar = ({ activePage, setActivePage, onOpenChaos }) => {
               );
             })}
           </div>
-
           <div className="pt-2 flex flex-col gap-2">
             <PillButton
               variant="gold"

@@ -94,7 +94,7 @@ export const Footer = ({ setActivePage }) => {
         </div>
 
         <div className="pt-8 border-t border-cream/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code text-comicWhite/60">
-          <div>© {new Date().getFullYear()} Founders Gone Wild — Zero Rules. Maximum Chaos.</div>
+          <div>© {new Date().getFullYear()} Founder's Gone Wild — Think Wild. Build Smart. Pitch Bold.</div>
           <div className="flex items-center gap-4">
             <span>Built with React + Vite + 3D Deck Engine</span>
           </div>

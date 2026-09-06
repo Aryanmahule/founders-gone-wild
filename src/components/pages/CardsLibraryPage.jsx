@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DOMAIN_CARDS, OBJECT_CARDS, POWERUP_CARDS, CHAOS_CARDS } from '../../data/cardsData';
+import { DOMAIN_CARDS, OBJECT_CARDS, POWERUP_CARDS } from '../../data/cardsData';
 import { PillButton } from '../ui/UIComponents';
 import { Layers, Search } from 'lucide-react';
 import { soundFX } from '../../utils/audio';
@@ -15,7 +15,6 @@ export const CardsLibraryPage = ({ setActivePage }) => {
     ...DOMAIN_CARDS.map(c => ({ ...c, type: 'domain' })),
     ...OBJECT_CARDS.map(c => ({ ...c, type: 'object' })),
     ...POWERUP_CARDS.map(c => ({ ...c, type: 'powerup' })),
-    ...CHAOS_CARDS.map(c => ({ ...c, type: 'chaos' })),
   ];
 
   const filteredCards = allCards.filter(c => {
@@ -33,7 +32,6 @@ export const CardsLibraryPage = ({ setActivePage }) => {
     { id: 'domain',  label: 'Domain',        count: DOMAIN_CARDS.length },
     { id: 'object',  label: 'Crazy Objects', count: OBJECT_CARDS.length },
     { id: 'powerup', label: 'Power-Ups',     count: POWERUP_CARDS.length },
-    { id: 'chaos',   label: 'Chaos Cards',   count: CHAOS_CARDS.length },
   ];
 
   const borderGlow = (type) => {
@@ -53,8 +51,7 @@ export const CardsLibraryPage = ({ setActivePage }) => {
   const badgeLabel = (type) => {
     if (type === 'domain')  return 'Domain';
     if (type === 'object')  return 'Crazy Object';
-    if (type === 'powerup') return 'Power-Up';
-    return 'Chaos Modifier';
+    return 'Power-Up';
   };
 
   return (
@@ -166,7 +163,7 @@ export const CardsLibraryPage = ({ setActivePage }) => {
               <div className="text-6xl animate-float">{selectedCard.icon}</div>
               <h2 className="font-display text-3xl text-gold uppercase">{selectedCard.title}</h2>
               <div className="inline-block font-mono-code text-xs font-bold uppercase tracking-wider bg-ink/50 text-cream px-3 py-1 rounded-full border border-cream/20">
-                {selectedCard.category || 'Chaos Event'} • {selectedCard.rarity || selectedCard.severity}
+                {selectedCard.category || 'Card'} • {selectedCard.rarity || selectedCard.severity}
               </div>
               {selectedCard.price && (
                 <div className="inline-block ml-2 font-mono-code text-xs font-bold uppercase bg-gold text-ink px-3 py-1 rounded-full">

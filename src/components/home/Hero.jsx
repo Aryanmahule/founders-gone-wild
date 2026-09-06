@@ -134,7 +134,7 @@ function DeckCanvas({ scrollProgress }) {
 // ─── Hero section ────────────────────────────────────────────────────────────
 const REGISTER_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdZTOSL6CbQQEQ3fU5HcKwTWKtaxQ-RgPSrR3wShZjAA6c18w/viewform';
 
-export const Hero = ({ setActivePage, onOpenChaos }) => {
+export const Hero = ({ setActivePage }) => {
   const sectionRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   // canvasOpacity fades out as the animation nears its end
