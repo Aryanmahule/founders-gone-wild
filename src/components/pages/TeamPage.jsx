@@ -50,6 +50,15 @@ const TEAM = [
     badge: 'bg-cream/20 text-cream border border-cream/30',
     desc: 'Managing budgets, prize pools, sponsorships, and keeping every detail documented to the last rupee.',
   },
+  {
+    name: 'Ninashka Ford',
+    role: 'Design Head',
+    emoji: '🎨',
+    color: 'border-purple/60 hover:border-purple',
+    glow: 'hover:shadow-[0_0_30px_rgba(108,63,166,0.35)]',
+    badge: 'bg-purple text-comicWhite',
+    desc: 'Crafting the visual identity of Founder\'s Gone Wild — from branding and card design to every pixel that makes the event unforgettable.',
+  },
 ];
 
 export const TeamPage = ({ setActivePage }) => {
@@ -81,8 +90,8 @@ export const TeamPage = ({ setActivePage }) => {
         ))}
       </div>
 
-      {/* Bottom row: 2 cards centred */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+      {/* Bottom row: 3 cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {TEAM.slice(3).map((member) => (
           <MemberCard key={member.name} member={member} />
         ))}
